@@ -11,19 +11,19 @@ package model;
  */
 public class Kill {
     //causas de morte
-    private String deadPlayer;
-    private String motivo;
+    private int deadPlayerId;
+    private int meansOfDeathId;
 
-    public Kill(String deadPlayer, String motivo) {
-        this.deadPlayer = deadPlayer;
-        this.motivo = motivo;
+    public Kill(int meansOfDeathId, int deadPlayerId) {
+        this.deadPlayerId = deadPlayerId;
+        this.meansOfDeathId = meansOfDeathId;
     }
 
-    public String getDeadPlayer() {
-        return deadPlayer;
+    public int getDeadPlayerId() {
+        return deadPlayerId;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public int getMeansOfDeathId() {
+        return meansOfDeathId;
     }    
 }
