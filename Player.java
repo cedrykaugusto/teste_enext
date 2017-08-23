@@ -14,16 +14,18 @@ import java.util.Map;
  *
  * @author Cedryk
  */
-public class Player {
+public class Player implements Comparable{
     private int id;
     private String playerName;
     private Map<Integer, ArrayList<Kill>> kills;
+    private int nKills;
     private int punicao;
 
     public Player(int id, String playerName) {
         this.id = id;
         this.playerName = playerName;
         this.punicao = 0;
+        this.nKills = 0;
         this.kills = new HashMap<>();
        
     }
@@ -36,9 +38,10 @@ public class Player {
         }
         else{
             killsAux = new ArrayList<>();
-            killsAux.add(new Kill(deadPlayerId, meansOfDeathId));
+            killsAux.add(new Kill(meansOfDeathId, deadPlayerId));
             kills.put(meansOfDeathId, killsAux);
         }
+        nKills++;
     }
 
     public void setPlayerName(String playerName) {
@@ -58,14 +61,7 @@ public class Player {
     }
 
     public int getNumeroKills() {
-        int contKills = 0;
-        Iterator it = kills.keySet().iterator();
-        //conta as mortes agrupadas pela causa
-        while(it.hasNext()){
-            ArrayList<Kill> aux = kills.get(it.next());
-            contKills += aux.size();
-        }
-        return (contKills-punicao);
+        return (nKills-punicao);
     }
 
     public Map<Integer, ArrayList<Kill>> getKills() {
@@ -75,5 +71,11 @@ public class Player {
     @Override
     public String toString() {
         return playerName + ": " + getNumeroKills();
-    }    
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Player p2 = (Player) o;
+        return -(this.getNumeroKills()- p2.getNumeroKills());
+    }
 }

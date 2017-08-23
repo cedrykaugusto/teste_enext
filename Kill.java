@@ -15,8 +15,8 @@ public class Kill {
     private int meansOfDeathId;
 
     public Kill(int meansOfDeathId, int deadPlayerId) {
-        this.deadPlayerId = deadPlayerId;
         this.meansOfDeathId = meansOfDeathId;
+        this.deadPlayerId = deadPlayerId;
     }
 
     public int getDeadPlayerId() {

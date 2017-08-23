@@ -87,7 +87,7 @@ public class InterpretadorLog {
                         }
                         else{
                             gameAtual.addKillToWorld(meansOfDeathId, deadPlaeyrId);
-                        }                        
+                        }
                         break;                    
                     }
                 }
@@ -98,5 +98,10 @@ public class InterpretadorLog {
             Logger.getLogger(InterpretadorLog.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ArrayList<Game> getGames() {
+        return games;
+    }    
+    
     
 }
